@@ -1,0 +1,171 @@
+.loginContainer {
+  /* border: 1px solid #0E0A32; */
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../images//registerBg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginInner {
+  max-width: 600px;
+  /* margin: 100px auto; */
+  margin-top: 60px;
+  /* border: 1px solid red; */
+  padding: 20px 30px;
+}
+
+.formGroup {
+  /* border: 1px solid lime; */
+}
+
+.formGroup label,
+span {
+  display: block;
+  /* border: 1px solid red; */
+  color: #ffffff;
+}
+
+.formGroup label {
+  margin-bottom: 25px;
+}
+
+.formGroup span {
+  margin-bottom: 10px;
+  color: #c5c3c3;
+  font-size: 13px;
+}
+
+.formGroup label > input {
+  width: 100%;
+  outline: none;
+  padding: 14px 20px;
+  border-radius: 13px;
+  border: 1px solid #3e3b5b;
+  background-color: #3e3b5b;
+  color: #ffffff;
+}
+
+.formGroup label > .show__password {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  background-color: #3e3b5b;
+  border-radius: 13px;
+}
+
+.formGroup label > .show__password > input {
+  width: 100%;
+  outline: none;
+  padding: 15.5px 20px;
+  /* border: 1px solid #3e3b5b; */
+  background: transparent;
+  color: #ffffff;
+  border: none;
+}
+/* .checkbox{
+    display: flex;
+    align-items: center;
+} */
+
+.check > input {
+  margin-right: 10px;
+}
+
+.check > span {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.formGroup > button {
+  width: 100%;
+  margin: 25px 0 20px 0;
+  padding: 18px 0;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background-color: #5138ee;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.formGroup > button:hover {
+  opacity: 0.8;
+}
+
+.checkbox2 {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.check {
+  display: flex;
+  align-items: center !important;
+  /* border: 1px solid red; */
+  /* justify-content: space-between; */
+}
+
+.checkbox2 > a {
+  /* text-decoration: none; */
+  color: #ffc249;
+  font-size: 13px;
+}
+
+.registerTag {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.registerTag > a {
+  text-decoration: none;
+  color: #ffc249;
+  margin-left: 10px;
+}
+.error {
+  color: red !important;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* SUCCESS MESSAGE STYLES */
+.success {
+  color: green;
+  border: 1px solid rgb(167, 231, 167);
+  background-color: rgb(167, 231, 167);
+  text-align: center;
+  padding: 15px 0;
+  font-size: 12.5px;
+  width: 100%;
+  opacity: 0.5;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.passwordIcon {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .checkbox2 > .check > span {
+    font-size: 0.7rem;
+  }
+  .checkbox2 > a {
+    font-size: 0.7rem;
+  }
+  .check > input {
+    height: 13px !important;
+    width: 13px !important;
+  }
+  .loginInner {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,298 @@
+.createProject>h1 {
+  margin: 0.685rem 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.top>.back {
+  display: flex;
+  align-items: center;
+}
+
+.top>.back>img {
+  background-color: #351b60;
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  background-color: #7e39ca;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.top>.btn>span {
+  font-size: 13px;
+}
+
+.btn>img {
+  margin-right: 1rem;
+}
+
+/* Form Styling */
+
+.formContainer {
+  background-color: #20114a;
+  padding: 30px 30px;
+  border-radius: 10px;
+}
+
+.formContainer>.form {
+  display: flex;
+  /* border: 1px solid red; */
+}
+
+.form>.left {
+  /* border: 1px solid red; */
+  /* border-right: 1px solid #6d6c6c; */
+  width: 48%;
+}
+
+.form>.right {
+  /* border: 1px solid red; */
+  /* width: 52%; */
+  padding-left: 20px;
+}
+
+.form>.left>.inputContainer,
+.form>.right>.inputContainer {
+  display: flex;
+  margin-top: 1.5rem;
+  gap: 15px;
+}
+
+.jobLocation {
+  margin-top: 1rem;
+}
+
+.jobLocation>label>span {
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+.jobLocation>label>input {
+  border: 2px solid #5d389a;
+  padding: 10px;
+  border-radius: 5px;
+  background: #351b60;
+  color: rgba(244, 244, 244, 0.5);
+  /* width: 95%; */
+  width: 400px;
+}
+
+.proposalContainer {
+  margin-top: 1rem;
+}
+
+.proposalContainer>label {
+  width: 98%;
+  /* border: 1px solid red; */
+}
+
+.proposalContainer>label>span {
+  /* color: red; */
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+.proposalContainer>label>input {
+  border: 2px solid #5d389a;
+  padding: 10px;
+  border-radius: 5px;
+  background: #351b60;
+  color: rgba(244, 244, 244, 0.5);
+  /* width: 95% */
+  width: 200px;
+}
+
+.proposalContainer>label>input::placeholder {
+  /* color: red; */
+  font-weight: 100 !important;
+}
+
+.form>.left>.inputContainer>label,
+.form>.right>.inputContainer>label {
+  /* border: 1px solid red; */
+  /* width: 48%; */
+  width: 200px;
+}
+
+.form>.left>.inputContainer>label>span,
+.form>.right>.inputContainer>label>span {
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: #f3eeee;
+  margin-bottom: 10px;
+}
+
+.form>.left>.inputContainer>label>input,
+textarea {
+  border: 2px solid #5d389a;
+  padding: 10px;
+  border-radius: 5px;
+  background: transparent;
+  color: rgba(244, 244, 244, 0.5);
+  width: 95%;
+  resize: none;
+}
+
+.form>.right>.inputContainer>label>input {
+  border: 2px solid #5d389a;
+  padding: 10px;
+  border-radius: 5px;
+  background: transparent;
+  color: rgba(244, 244, 244, 0.5);
+  width: 95%;
+}
+
+.Summary {
+  margin-top: 1.5rem;
+}
+
+.Summary>label>span {
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+
+::placeholder {
+  color: rgba(244, 244, 244, 0.5);
+}
+
+.uploadImage {
+  margin-top: 1.5rem;
+}
+
+.imageInput {
+  border: 2px solid #5d389a;
+  background: rgba(255, 255, 255, 0.09);
+  padding: 30px 0;
+  border-radius: 4px;
+  width: 95%;
+  text-align: center;
+}
+
+.imageInput>.signatureSpan,
+.imageInput>.sizeSpan {
+  font-size: 12px;
+}
+
+.imageInput>.sizeSpan {
+  opacity: 0.62;
+  font-weight: 100;
+}
+
+.imageInput>label>span {
+  color: #ffffff;
+  background: #603dbf;
+  padding: 5px 25px;
+  border-radius: 25px;
+  font-size: 11px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.creatingButton {
+  color: #ffffff;
+  background: #603dbf;
+  padding: 10px 30px;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 4px;
+  opacity: 0.6;
+}
+
+.createButton {
+  color: #ffffff;
+  background: #603dbf;
+  padding: 10px 30px;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+  margin: 30px 0;
+}
+
+.checkBox>p {
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin: 20px 0 0 0;
+  /* border: 1px solid red; */
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 660px) {
+  .form>.left {
+    width: 100%;
+  }
+
+  .jobLocation>label>input {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .form>.left>.inputContainer,
+  .form>.right>.inputContainer {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .form>.left>.inputContainer>label>input,
+  textarea,
+  .form>.right>.inputContainer>label>input {
+    width: 100%;
+  }
+
+  .form>.left>.inputContainer>label>span,
+  .form>.right>.inputContainer>label>span {
+    font-size: 0.7rem;
+  }
+
+  .form>.left>.inputContainer>label,
+  .form>.right>.inputContainer>label {
+    /* border: 1px solid red; */
+    width: 100%;
+  }
+
+  .jobLocation>label>input {
+    width: 100%;
+  }
+
+  .jobLocation>label>span {
+    font-size: 11px;
+  }
+
+  .form>.right {
+    padding-left: 0;
+  }
+}
+

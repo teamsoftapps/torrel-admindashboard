@@ -1,0 +1,139 @@
+.container {
+  display: flex;
+  gap: 3rem;
+}
+
+.container > div {
+  height: 3rem;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container > .search {
+  flex-grow: 2.5;
+}
+
+.container > .search form {
+  width: 100%;
+}
+
+.container > .search .form_control label {
+  display: flex;
+  border-radius: 2rem;
+  background-color: #ffffff;
+  padding: 0 1.8rem;
+}
+
+.container > .search .form_control label img {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: auto;
+}
+
+.container > .search .form_control input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  margin-left: 1rem;
+  font-size: 0.75rem;
+  padding: 0.8rem 1rem;
+}
+
+.container > .search .form_control input::placeholder {
+  color: darkgrey;
+  font-size: 0.75rem;
+}
+
+.container > .options {
+  flex-grow: 2;
+}
+
+.container > .options button {
+  padding: 0.5rem;
+  border-radius: 100%;
+  position: relative;
+}
+
+.container > .options button:hover {
+  cursor: pointer;
+}
+
+.container > .options button span {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.1rem;
+  border-radius: 50%;
+  border: 3px solid #6bdb65;
+}
+
+.container > .options button img {
+  width: 1.2rem;
+}
+
+.container > .user_info {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 0.2;
+  cursor: pointer;
+}
+
+.container > .user_info > .name_role {
+  width: 100%;
+}
+
+.container > .user_info > .name_role > p {
+  font-size: 1rem;
+}
+
+.container > .user_info > .name_role > p:nth-child(1) {
+  font-weight: 700;
+}
+
+.container > .user_info > .name_role > p:nth-child(2) {
+  color: #9babc5;
+  font-weight: 400;
+  font-size: 0.813rem;
+}
+
+.container > .user_info > .image {
+  flex-grow: 1;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.container > .user_info > .image > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+  position: relative;
+}
+
+.mobile_menu_btn {
+  display: none;
+  background: transparent;
+  color: #ab54db;
+  border: 1px solid #ab54db;
+  border-radius: 7px;
+  padding: 2px 3px;
+  height: 30px;
+  margin-top: 26px;
+}
+@media screen and (max-width: 769px) {
+  .container {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mobile_menu_btn {
+    display: block;
+  }
+}

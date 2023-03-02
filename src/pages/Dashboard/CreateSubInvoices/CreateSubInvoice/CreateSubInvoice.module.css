@@ -1,0 +1,208 @@
+.create__invoices > h1 {
+    margin: 0.685rem 0;
+  }
+  .invoices__btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: 1px solid red; */
+  }
+  .invoices__btns > button {
+    display: flex;
+    background-color: #ffffff;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  .invoices__btns > button:hover {
+    opacity: 0.9;
+  }
+  .invoices__btns > button:last-child {
+    background-color: #7e39ca !important;
+    color: #ffffff !important;
+    padding: 12px 20px;
+  }
+  .invoices__btns > button:last-child span {
+    color: #ffffff !important;
+  }
+  .invoices__btns > button > img {
+    height: 17px;
+  }
+  .invoices__btns > button > span {
+    color: #7e39ca;
+    margin-left: 0.6rem;
+  }
+  
+  .createInvoices__forms {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .forms__left,
+  .forms__right {
+    flex: 1 1 400px;
+    /* border: 1px solid red; */
+  }
+  .forms__right {
+    margin-left: 1.5rem;
+  }
+  
+  .forms__left > .left__top,
+  .forms__left > .left__bottom,
+  .forms__right > .right__top,
+  .forms__right > .right__bottom {
+    background-color: #20114a;
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+  
+  .left__bottom,
+  .right__bottom {
+    margin-top: 1.5rem;
+  }
+  .createInvoices__forms .inputContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  .createInvoices__forms .inputContainer > label {
+    /* border: 1px solid red; */
+    width: 100%;
+  }
+  .createInvoices__forms .inputContainer > label > input,
+  .createInvoices__forms .inputContainer > label > select{
+    width: 97%;
+    border: 2px solid #5d389a;
+    padding: 10px;
+    border-radius: 5px;
+    background: transparent;
+    color: rgba(244, 244, 244, 0.5);
+    outline: none;
+  }
+  
+  .createInvoices__forms .inputContainer > label > select{
+    background: #20114a;
+  }
+  /* .createInvoices__forms .inputContainer > label > .dropdown{
+    width: 97%;
+    border: 2px solid #5d389a;
+    padding: 10px;
+    border-radius: 5px;
+    background: transparent;
+    color: rgba(244, 244, 244, 0.5);
+    outline: none;
+  } */
+  
+  /* .createInvoices__forms .inputContainer > label > .dropdown>button,
+  .createInvoices__forms .inputContainer > label > .dropdown>ul>li>button{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: rgba(244, 244, 244, 0.5);
+  }
+  .createInvoices__forms .inputContainer > label > .dropdown>ul{
+    list-style: none;
+  }
+  .createInvoices__forms .inputContainer > label > .dropdown>ul>li{
+    border-top: 1px solid #5d389a;
+  } */
+  
+  .createInvoices__forms .inputContainer > label > textarea {
+    width: 100% !important;
+    resize: none;
+    outline: none;
+  }
+  ::placeholder {
+    color: rgba(244, 244, 244, 0.5);
+  }
+  .createInvoices__forms .inputContainer > label > span {
+    font-size: 0.8rem;
+    font-weight: 100;
+    color: #f3eeee;
+    margin-bottom: 10px;
+  }
+  
+  .right__bottom > h4,
+  .invoice__totals,
+  .total__due {
+    padding: 10px 20px;
+    background: #140934;
+    opacity: 0.56;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    font-weight: 100;
+  }
+  .invoice__totals {
+    margin-top: 1rem;
+  }
+  .invoice__totals > .amount {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    align-items: center;
+  }
+  .invoice__totals > .amount > span,
+  .total__due > span {
+    font-weight: 100;
+    font-size: 13px;
+  }
+  .total__due {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .amount > strong,
+  .total__due > strong {
+    font-weight: 100;
+    font-size: 13px;
+  }
+  @media screen and (max-width: 1157px) {
+    .forms__left > .left__top,
+    .forms__left > .left__bottom,
+    .forms__right > .right__top,
+    .forms__right > .right__bottom {
+      margin-top: 20px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .invoices__btns {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .forms__right {
+      margin-left: 0rem;
+    }
+  }
+  @media screen and (max-width: 769px) {
+    .create__invoices > h1 {
+      font-size: 25px;
+    }
+    .invoices__btns {
+      gap: 20px;
+      justify-content: flex-start;
+    }
+    .createInvoices__forms .inputContainer > label > span {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+    .createInvoices__forms .inputContainer {
+      flex-wrap: wrap;
+    }
+    .createInvoices__forms .inputContainer > label > span {
+      font-size: 0.8rem;
+    }
+    .createInvoices__forms .inputContainer > label {
+      margin: 10px 0px;
+    }
+    .createInvoices__forms .inputContainer {
+      margin-top: 0.5rem;
+    }
+  }
+  

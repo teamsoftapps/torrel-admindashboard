@@ -1,0 +1,13 @@
+.icon{
+    color: white;
+}
+
+.details{
+    color: #fff;
+    text-decoration: none;
+}
+
+.icon:hover,
+.details:hover{
+    color: rgb(107, 219, 101);
+}

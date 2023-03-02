@@ -1,0 +1,262 @@
+.savedInvoices > h1 {
+  margin: 0.685rem 0;
+}
+
+.sendInvoice {
+  background-color: #20114a;
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+}
+.sendInvoice > .heading {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.headingLeft,
+.headingRight {
+  flex: 1 1 250px;
+}
+.headingLeft > h2 {
+  color: #896ff3;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+.btns {
+  display: flex;
+  align-items: center;
+}
+.btns > button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border-radius: 5px;
+  padding: 8px;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.btns > button:nth-child(1) {
+  border: 1.09291px solid #c6c6c6;
+}
+.btns > button:nth-child(1) > img {
+  height: 18px;
+}
+.btns > button:nth-child(2) {
+  color: #896ff3;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+.btns > button:nth-child(3) {
+  color: #896ff3;
+  background-color: #6bdb65;
+  border: 1px solid #6bdb65;
+}
+.btns > button:nth-child(3) > img {
+  height: 13px;
+  margin-right: 0.4rem;
+}
+.headingRight {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.headingRight > .card {
+  border: 1.8px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 200px;
+}
+/* .headingRight > .card:nth-child(2) {
+  margin-left: 1.5rem;
+} */
+.headingRight > .card > .cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cardHead > span {
+  color: #c6c6c6;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+.cardHead > button,
+.itemRight > button,
+.table__editBtn > button {
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+.cardContent {
+  margin-top: 0.6rem;
+}
+.cardContent > h3 {
+  font-size: 1rem;
+}
+.cardContent > p {
+  color: #b6b3b3;
+  font-weight: 200;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+/* LIST STYLING */
+.invoiceList {
+  background-color: #351b60;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  margin-top: 1.2rem;
+}
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.itemLeft,
+.itemMiddle,
+.itemRight {
+  flex: 1 1 200px;
+  /* border: 1px solid red; */
+  margin-right: 1rem;
+}
+/* .itemMiddle{
+    margin-left: 1.5rem;
+} */
+.itemLeft > div,
+.itemMiddle > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  align-items: center;
+}
+.itemLeft > div > span:nth-child(2),
+.itemMiddle > div > span:nth-child(2) {
+  font-weight: 100 !important;
+  font-size: 0.85rem;
+  color: #e4dede;
+}
+.itemMiddle {
+  margin-left: 3rem;
+}
+.itemRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* table styling */
+
+.invoiceProduct {
+  background-color: #351b60;
+  padding: 1rem 2.5rem;
+  margin-top: 1.2rem;
+  border-radius: 10px;
+}
+
+/* table styling */
+
+.invoiceProduct > table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.header__table th {
+  font-weight: 100 !important;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.body__row > td {
+  padding-top: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.productPrice {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #7e39ca;
+  color: #ffffff;
+  margin-top: 1.2rem;
+  border-radius: 6px;
+  padding: 1.1rem 10rem;
+}
+.productPrice > span {
+  font-weight: bold;
+  margin-right: 3rem;
+  font-size: 1.2rem;
+}
+.productPrice > strong {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .savedInvoices > h1 {
+    font-size: 30px;
+  }
+  .btns > button {
+    font-size: 10px;
+  }
+  .headingLeft > h2 {
+    font-size: 1rem;
+  }
+  .cardContent > p {
+    font-size: 0.6rem;
+  }
+  .headingRight {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cardContent > h3 {
+    font-size: 0.8rem;
+  }
+  .header__table th {
+    font-size: 12px;
+  }
+  .body__row > td {
+    font-size: 12px;
+  }
+  .productPrice > span {
+    font-size: 1rem;
+  }
+  .productPrice > strong {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 630px) {
+  .invoiceProduct {
+    padding: 1rem;
+    overflow-x: scroll;
+  }
+  .invoiceList {
+    padding: 1rem;
+  }
+  .productPrice {
+    padding: 1.1rem 7rem;
+  }
+  .itemMiddle {
+    margin-left: 0rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .invoiceProduct > table {
+    width: 380px;
+  }
+  .productPrice {
+    padding: 1.1rem 5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .itemLeft,
+  .itemMiddle,
+  .itemRight {
+    margin-right: 0rem;
+  }
+  .header__table th {
+    font-size: 10px;
+  }
+  .body__row > td {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,134 @@
+.container {
+  height: 100%;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: #20114a;
+  /* border: 1px solid red; */
+  position: fixed;
+}
+
+.container > img {
+  height: 70px;
+  margin: 0 2rem;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 1rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.685rem;
+  /* border: 1px solid red; */
+}
+
+.buttons a {
+  width: 100%;
+  padding: 1rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: 0.4s all;
+}
+
+.buttons a:hover {
+  color: #ab54db;
+  background-color: #351b60;
+}
+
+.link_active {
+  color: #ab54db !important;
+  font-weight: 500;
+  background-color: #351b60;
+}
+
+.buttons a img {
+  width: auto;
+  height: 1rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    padding: 1.5rem;
+    position: relative;
+  }
+  .container > img {
+    margin: 0 1.5rem;
+  }
+}
+@media screen and (max-width: 950px) {
+  .container {
+    position: relative;
+  }
+
+  .buttons a {
+    font-size: 12px;
+  }
+  .container > img {
+    height: 60px;
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .container > img {
+    display: none;
+  }
+  .buttons {
+    margin-top: 4rem;
+  }
+  .buttons a {
+    padding: 1rem 0;
+    width: auto;
+    margin: 0 auto;
+  }
+  .buttons a > span {
+    display: none;
+  }
+  .link_active {
+    color: #ffffff !important;
+    font-weight: 500;
+    background-color: #20114a;
+
+  }
+}
+@media screen and (max-width: 480px) {
+  .buttons a {
+    padding: 1rem 0;
+    margin: unset;
+  }
+  .mobile_menu_btn{
+    display: block;
+   }
+   .container{
+    display: none;
+   }
+   .mobile_container {
+    position: absolute;
+    transition: all 1s ease;
+    top: 90px;
+    z-index: 100;
+    width: 37%;
+    border-radius: 0;
+    background-color: #20114a;
+    padding: 0 14px;
+    transition-delay: 1s;
+  
+  }
+  .mobile_container>img{
+    display: none;
+  }
+
+  .link_active {
+    color: #ffffff !important;
+    font-weight: 500;
+    background-color: #20114a;
+  }
+  .buttons a > span {
+    display: inline-block;
+  }
+}

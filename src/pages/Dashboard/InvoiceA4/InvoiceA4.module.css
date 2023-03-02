@@ -1,0 +1,119 @@
+
+.invoiceA4__size{
+    width: 650px;
+    /* height: 842px; */
+    /* border: 1px solid black; */
+    margin: 90px auto;
+}
+.printTop{
+    display: flex;
+    justify-content: space-between;
+}
+.printTop>img{
+    height: 150px;
+}
+.content_top{
+    display: flex;
+    /* border: 1px solid red; */
+    width: 290px;
+    justify-content: space-between;
+}
+.content_top_left>span,
+.content_top_right>span{
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+.middle{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3.5rem;
+}
+.billedTo{
+    display: flex;
+    align-items: center;
+    border: 1px dotted #777;
+    border-radius: 3px;
+    padding: 20px ;
+}
+.billedTo>span:nth-child(1){
+    font-size: 2rem!important;
+    color: #777;
+    margin-right: 5px;
+}
+.billedTo>span:nth-child(2){
+    font-size: 1rem!important;
+    color: #333;
+    font-weight: 500;
+}
+.middle span{
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+}
+.dueDate,.reference{
+    margin-top: 30px;
+}
+.invoiceA4__size>hr{
+    border: none;
+    height: 2px;
+    background-color:#296fa8;
+    margin-top: 3.5rem;
+}
+.descContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.description{
+  width: 300px;
+  /* border: 1px solid red; */
+  flex: 0.6;
+}
+.descRight{
+    display: flex;
+    /* border: 1px solid red; */
+    flex: 0.4;
+    justify-content: space-between;   
+}
+.descContainer p{
+    color: #296fa8;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.invoiceCalculation{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.invoiceCalculation>.inner{
+    /* border: 1px solid red; */
+    width: 300px;
+    margin-top: 1.5rem;
+}
+.inner>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inner>div>P{
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-top: 1px;
+}
+.inner>hr{
+    margin: 5px 0;
+
+}
+.para p{
+    font-size: 13px;
+    font-weight: 500;
+}
+.para p:nth-child(1){
+    color: #296fa8;
+}
+.para p:nth-child(2){
+    color: #777;
+}
