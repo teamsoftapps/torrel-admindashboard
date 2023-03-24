@@ -41,6 +41,7 @@ const UserDetail = () => {
 
   const fetchClients = async () => {
     setIsLoading(true);
+    
     setError(null);
     try {
       const { data } = await api.get(`/api/v1/superadmin/users/clients/${id}`, {

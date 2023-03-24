@@ -62,8 +62,9 @@ const UserList = () => {
   const blockUser = async (url) => {
     setIsLoading(true);
     setError(null);
+    console.log("token: ", user?.data?.token)
     try {
-      const { data } = await api.patch(url, {
+      const { data } = await api.patch(url, {}, {
         headers: {
           Authorization: `Bearer ${user?.data?.token}`,
         },
@@ -152,7 +153,7 @@ const UserList = () => {
                       }}
                     >
                       <img
-                        src={user?.image}
+                        src={user?.userImage}
                         alt=""
                         className={styled.userImg}
                       />
