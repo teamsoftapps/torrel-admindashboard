@@ -37,7 +37,7 @@ const UserList = () => {
     try {
       const { data } = await api.get("/api/v1/superadmin/users", {
         headers: {
-          // Authorization: `Bearer ${user?.data?.token}`,
+          Authorization: `Bearer ${user?.data?.token}`,
         },
       });
       if (data) {
