@@ -5,12 +5,15 @@ import "react-toastify/dist/ReactToastify.css";
 import CurrencyFormatter from "../../../../utils/currencyFormatter";
 import { api } from "../../../../services/api";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import { useParams } from "react-router-dom";
 
 const AllSubInvoice = () => {
+  const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [allSubInvoices, setAllSubInvoices] = useState([]);
   const { user } = useAuthContext();
+
   // const allInvoicesUrl = `/api/v1/subinvoices`;
   // const {
   //   data: allSubInvoices,
@@ -22,11 +25,14 @@ const AllSubInvoice = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const { data } = await api.get("/api/v1/subinvoices", {
-        headers: {
-          Authorization: `Bearer ${user?.data?.token}`,
-        },
-      });
+      const { data } = await api.get(
+        `/api/v1/superadmin/users/subinvoices/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user?.data?.token}`,
+          },
+        }
+      );
 
       if (data) {
         console.log("All_SubInvoices>>", data);
@@ -50,7 +56,7 @@ const AllSubInvoice = () => {
       <h1>All Sub Invoices</h1>
 
       {isLoading && <h1>Loading...</h1>}
-      {error && <div>{error}</div>}
+      {error && <div>{error?.message}</div>}
       {allSubInvoices?.data?.length === 0 && (
         <div
           style={{
@@ -60,7 +66,7 @@ const AllSubInvoice = () => {
             marginTop: "3rem",
           }}
         >
-          No Sub invoices added yet, Please Create.
+          No Sub invoices corresponding to this user.
         </div>
       )}
       {!error && !isLoading && allSubInvoices?.data?.length !== 0 && (
@@ -104,7 +110,7 @@ const AllSubInvoice = () => {
                     <td>{invoice?.subjob?.job?.client?.clientEmail}</td>
                     <td>
                       <CurrencyFormatter
-                        amount={invoice?.subJob?.subJobBudget}
+                        amount={invoice?.subjob?.subJobBudget}
                       />
                     </td>
                     <td style={{ color: "#9BABC5" }}>

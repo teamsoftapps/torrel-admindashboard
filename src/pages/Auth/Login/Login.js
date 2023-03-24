@@ -19,6 +19,7 @@ const Login = () => {
   const { dispatch } = useAuthContext();
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
+  const [newError, setNewError] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(true);
   const navigate = useNavigate();
@@ -30,17 +31,25 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-    setIsError(null);
 
     const payload = {
       email: userData.email,
       password: userData.password,
     };
 
+    setIsLoading(true);
+    setIsError(null);
+    setTimeout(() => {
+      setNewError(null);
+    }, 4000);
+
     try {
       const { data } = await api.post("/api/v1/users/login", payload);
-      if (data) {
+      if (data && data?.data?.email !== "invoiceapp0@gmail.com") {
+        setIsLoading(false);
+        setNewError("Only Admin have a access to login here.");
+        return;
+      } else {
         console.log(data);
         localStorage.setItem("User", JSON.stringify(data));
         // setUser(data);
@@ -50,14 +59,15 @@ const Login = () => {
         });
         setUserData({ ...userData, email: "", password: "" });
         setSuccessMessage(data.message);
-      }
-      setIsLoading(false);
-      setIsError(null);
+        setIsLoading(false);
+        setIsError(null);
+        setNewError(null);
 
-      setTimeout(() => {
-        setSuccessMessage("");
-        navigate("/dashboard");
-      }, 3000);
+        setTimeout(() => {
+          setSuccessMessage("");
+          navigate("/dashboard");
+        }, 3000);
+      }
     } catch (error) {
       setIsError(error.response.data);
       setIsLoading(false);
@@ -73,7 +83,7 @@ const Login = () => {
       <div className={classes.loginInner}>
         <Form>
           <AuthHeading
-            headingTitle="Login"
+            headingTitle="Admin Login"
             headingText="See your growth finance here and let see your profit you get now"
           />
           <form className={classes.formGroup} onSubmit={handleSubmit}>
@@ -142,10 +152,11 @@ const Login = () => {
               <button>Login</button>
             )}
             {isError && <div className={classes.error}>{isError?.error}</div>}
+            {newError && <div className={classes.error}>{newError}</div>}
           </form>
-          <center className={classes.registerTag}>
+          {/* <center className={classes.registerTag}>
             Not registered yet? <Link to="/signup">Register here</Link>
-          </center>
+          </center> */}
         </Form>
       </div>
     </div>

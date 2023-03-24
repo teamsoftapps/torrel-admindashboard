@@ -69,7 +69,7 @@ const Sidebar = () => {
 
   return (
     <div className={isMobile ? styles.mobile_container : styles.container}>
-      <img src={TORRELLOGO} alt="Logo" onClick={() => navigate("/")} />
+      <img src={TORRELLOGO} alt="Logo" onClick={() => navigate("/dashboard")} />
       <div className={styles.buttons}>
         {links.map((link, index) => (
           <Link
@@ -78,7 +78,7 @@ const Sidebar = () => {
             className={link.isActive && styles.link_active}
             // onClick={handleActive()}
           >
-            <img src={link.src} alt={link.text} />{" "}
+            <img src={link.src} alt={link.text} />
             <span onClick={() => setIsMobile(false)}> {link.text}</span>
           </Link>
         ))}

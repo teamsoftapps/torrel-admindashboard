@@ -223,7 +223,7 @@ const Project = () => {
 
       <div className={styles.project_dashboard_table}>
         {isLoading && <h1 className={styles.isLoading}>Loading...</h1>}
-        {error && <div className={styles.error}>{error}</div>}
+        {error && <div className={styles.error}>{error?.message}</div>}
         {allJobs?.length === 0 && (
           <div
             style={{

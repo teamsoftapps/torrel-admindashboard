@@ -76,6 +76,16 @@ const invoiceReducer = (state, action) => {
     case "REMOVE_ALL_SUBINVOICE":
       return { allSubInvoice: [] };
 
+    case "GET_ALL_USERS":
+      return { ...state, allUsers: action.payload };
+
+    case "DELETE_USERS":
+      return {
+        allUsers: state.allUsers.filter(
+          (user) => user._id !== action.payload._id
+        ),
+      };
+
     default:
       return state;
   }
@@ -90,6 +100,8 @@ export const InvoiceContextProvider = ({ children }) => {
     allInvoice: [],
     allSubJobs: [],
     allSubInvoice: [],
+    users: [],
+    allUsers: [],
   });
 
   return (

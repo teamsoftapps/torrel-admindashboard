@@ -6,13 +6,15 @@ import CurrencyFormatter from "../../../../utils/currencyFormatter";
 import { api } from "../../../../services/api";
 // import { useInvoiceContext } from "../../../../hooks/useInvoiceContext";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import { useParams } from "react-router-dom";
 // import { async } from "q";
 
 const AllInvoice = () => {
+  const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { user } = useAuthContext();
   const [allInvoices, setAllInvoices] = useState([]);
+  const { user } = useAuthContext();
   // const { dispatch, allInvoice: allInvoices } = useInvoiceContext();
   // const allInvoicesUrl = `/api/v1/invoices`;
   // const {
@@ -27,11 +29,14 @@ const AllInvoice = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const { data } = await api.get("/api/v1/invoices", {
-        headers: {
-          Authorization: `Bearer ${user?.data?.token}`,
-        },
-      });
+      const { data } = await api.get(
+        `/api/v1/superadmin/users/invoices/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user?.data?.token}`,
+          },
+        }
+      );
       if (data) {
         console.log("All_Invoices>>>", data);
         // dispatch({
@@ -58,7 +63,7 @@ const AllInvoice = () => {
       <h1>All Invoices</h1>
 
       {isLoading && <h1>Loading...</h1>}
-      {error && <div>{error}</div>}
+      {error && <div>{error?.message}</div>}
       {allInvoices?.data?.length === 0 && (
         <div
           style={{

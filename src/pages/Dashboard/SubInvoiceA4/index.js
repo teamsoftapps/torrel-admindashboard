@@ -68,7 +68,7 @@ console.log(":::singleInvoice",singleInvoice)
   return (
     <>
       {loading && <h1>Loading...</h1>}
-      {error && <div>{error}</div>}
+      {error && <div>{error?.message}</div>}
       {!error && !loading && (
         <div className={styles.invoiceA4__container}>
           <div

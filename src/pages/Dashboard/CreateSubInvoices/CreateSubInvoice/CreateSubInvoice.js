@@ -157,7 +157,7 @@ const CreateInvoice = ({ jobId, clientId }) => {
       <h1>Create Sub Invoices</h1>
       {error && (
         <div style={{ color: "red", fontSize: "0.9rem", margin: "1rem 0" }}>
-          {error}
+          {error?.message}
         </div>
       )}
       {/* Buttons Container */}

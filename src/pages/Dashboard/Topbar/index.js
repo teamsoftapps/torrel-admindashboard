@@ -7,9 +7,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import adminLogo from "../../../images/torrel_black.png";
 import CloseIcon from "@mui/icons-material/Close";
 import { useInvoiceContext } from "../../../hooks/useInvoiceContext";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 import { Link } from "react-router-dom";
 
 const Topbar = () => {
+  const { user } = useAuthContext();
   const { isMobile, setIsMobile } = useInvoiceContext();
 
   return (
@@ -52,11 +54,11 @@ const Topbar = () => {
       </div>
       <div className={styles.user_info}>
         <div className={styles.name_role}>
-          <p>Torrel</p>
+          <p>{user?.data?.name.substring(0, 6)}</p>
           <p>Admin</p>
         </div>
         <div className={styles.image}>
-          <img src={adminLogo} alt="" />
+          <img src={user?.data?.userImage} alt="" />
         </div>
       </div>
     </div>

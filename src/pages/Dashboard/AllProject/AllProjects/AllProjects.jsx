@@ -8,8 +8,10 @@ import { useInvoiceContext } from "../../../../hooks/useInvoiceContext";
 // import { useFetch } from "../../../../hooks/useFetch";
 import CurrencyFormatter from "../../../../utils/currencyFormatter";
 import { api } from "../../../../services/api";
+import { useParams } from "react-router-dom";
 
 const AllProjects = () => {
+  const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [activeBtn1, setActiveBtn1] = useState(true);
@@ -34,7 +36,7 @@ const AllProjects = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const { data } = await api.get("/api/v1/jobs", {
+      const { data } = await api.get(`/api/v1/superadmin/users/jobs/${id}`, {
         headers: {
           Authorization: `Bearer ${user?.data?.token}`,
         },
@@ -164,7 +166,7 @@ const AllProjects = () => {
 
       <div className={styles.project_dashboard_table}>
         {isLoading && <h1 className={styles.isLoading}>Loading...</h1>}
-        {error && <div className={styles.error}>{error}</div>}
+        {error && <div className={styles.error}>{error?.message}</div>}
         {allJobs?.length === 0 && (
           <div
             style={{
@@ -174,7 +176,7 @@ const AllProjects = () => {
               marginTop: "3rem",
             }}
           >
-            No jobs Added yet.
+            No jobs corresponding to this user.
           </div>
         )}
         {!error && !isLoading && allJobs?.length !== 0 && (

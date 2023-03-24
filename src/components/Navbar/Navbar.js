@@ -44,9 +44,9 @@ const Navbar = () => {
             </li>
             {!user ? (
               <>
-                <li onClick={() => setIsMobile(false)}>
+                {/* <li onClick={() => setIsMobile(false)}>
                   <Link to="/signup">Signup</Link>
-                </li>
+                </li> */}
                 <li onClick={() => setIsMobile(false)}>
                   <Link to="/login">Login</Link>
                 </li>

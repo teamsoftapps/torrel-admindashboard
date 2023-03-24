@@ -11,7 +11,7 @@ import CreateProjects from "./pages/Dashboard/CreateProjects";
 import InvoiceA4 from "./pages/Dashboard/InvoiceA4";
 import SubInvoiceA4 from "./pages/Dashboard/SubInvoiceA4";
 import Invoices from "./pages/Dashboard/invoices";
-import InvoicePrint from "./pages/Dashboard/printInvoice/InvoicePrint";
+// import InvoicePrint from "./pages/Dashboard/printInvoice/InvoicePrint";
 import Projects from "./pages/Dashboard/Projects";
 import SlicedInvoices from "./pages/Dashboard/SlicedInvoices";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -32,6 +32,7 @@ import AllSubInvoices from "./pages/Dashboard/AllSubInvoices";
 import CreateSubInvoices2 from "./pages/Dashboard/CreateSubInvoices2";
 import EmailSupports from "./pages/Dashboard/EmailSupports";
 import Users from "./pages/Dashboard/Users";
+import UsersDetails from "./pages/Dashboard/UsersDetails";
 
 const AppRouting = () => {
   const { user } = useAuthContext();
@@ -47,7 +48,7 @@ const AppRouting = () => {
           element={!user ? <Signup /> : <Navigate to="/login" />}
         /> */}
 
-        <Route
+        {/* <Route
           path="/signup"
           element={
             user?.data?.emailVerified ? (
@@ -56,7 +57,7 @@ const AppRouting = () => {
               <Signup />
             )
           }
-        />
+        /> */}
 
         <Route
           path="/forgotpassword"
@@ -72,64 +73,60 @@ const AppRouting = () => {
 
         <Route
           path="/login"
-          element={
-            user?.data?.emailVerified ? <Navigate to="/dashboard" /> : <Login />
-          }
+          element={!user ? <Login /> : <Navigate to="/dashboard" />}
         />
 
-        <Route
+        {/* <Route
           path="/confirmation"
           element={user ? <Confirmation /> : <Navigate to="/login" />}
-        />
+        /> */}
         <Route
           path="/dashboard"
-          element={
-            user?.data?.emailVerified ? <Dashboard /> : <Navigate to="/login" />
-          }
+          element={user ? <Dashboard /> : <Navigate to="/login" />}
         />
-        <Route
+        {/* <Route
           path="/dashboard/clients"
           element={user ? <Clients /> : <Navigate to="/login" />}
-        />
+        /> */}
         {/* <Route path="/dashboard/clients" element={<Clients />} /> */}
-        <Route
+        {/* <Route
           path="/dashboard/projects"
           element={user ? <AllProject /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/subprojects"
           element={user ? <AllSubProjects /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/projects/:id"
           element={user ? <Projects /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/projects/create/:id"
           element={user ? <CreateProjects /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/subprojects/:id"
           element={user ? <SubProjects /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/subprojects/create/:id"
           element={user ? <CreateSubProjects /> : <Navigate to="/login" />}
-        />
+        /> */}
         {/* <Route path="/dashboard/projects/create" element={<CreateProjects />} /> */}
-        <Route
+        {/* <Route
           path="/dashboard/allinvoices"
           element={user ? <AllInvoices /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/allsubinvoices"
           element={user ? <AllSubInvoices /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/invoices/:id"
           element={user ? <Invoices /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/subinvoices/:id"
           element={user ? <SubInvoices /> : <Navigate to="/login" />}
         />
@@ -148,8 +145,8 @@ const AppRouting = () => {
         <Route
           path="/dashboard/invoice/createinvoice2/:id"
           element={user ? <CreateInvoices2 /> : <Navigate to="/login" />}
-        />
-        <Route
+        /> */}
+        {/* <Route
           path="/dashboard/subinvoices/createsubinvoice2/:id"
           element={user ? <CreateSubInvoices2 /> : <Navigate to="/login" />}
         />
@@ -169,20 +166,51 @@ const AppRouting = () => {
         <Route
           path="/dashboard/updateClients"
           element={user ? <UpdateClients /> : <Navigate to="/login" />}
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           path="/dashboard/clients/:id"
           element={user ? <ClientDetails /> : <Navigate to="/login" />}
         />
         <Route
           path="/dashboard/updateClients"
           element={user ? <UpdateClients /> : <Navigate to="/login" />}
+        /> */}
+
+        <Route
+          path="/dashboard/superadmin/users"
+          element={user ? <Users /> : <Navigate to="/login" />}
         />
 
-        <Route path="/dashboard/superadmin/users" element={<Users />} />
+        {/* <Route path="/dashboard/emailsupport" element={<EmailSupports />} /> */}
 
-        <Route path="dashboard/emailsupport" element={<EmailSupports />} />
+        <Route
+          path="/dashboard/superadmin/users/:id"
+          element={user ? <UsersDetails /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/dashboard/superadmin/users/clients/:id"
+          element={user ? <Clients /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/dashboard/superadmin/users/jobs/:id"
+          element={user ? <AllProject /> : <Navigate to="/login" />}
+        />
+
+        <Route
+          path="/dashboard/superadmin/users/subjobs/:id"
+          element={user ? <AllSubProjects /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/dashboard/superadmin/users/invoices/:id"
+          element={user ? <AllInvoices /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/dashboard/superadmin/users/subinvoices/:id"
+          element={user ? <AllSubInvoices /> : <Navigate to="/login" />}
+        />
 
         <Route
           path="*"

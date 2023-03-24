@@ -164,7 +164,7 @@ const CreateInvoice = ({ clientId }) => {
   return (
     <div className={styles.create__invoices}>
       <h1>Create Invoices</h1>
-      {error && <p className={styles.error}>{error}</p>}
+      {error && <p className={styles.error}>{error?.message}</p>}
       {/* Buttons Container */}
       <div className={styles.invoices__btns}>
         {/* = <button onClick={() => navigate("/dashboard/invoices/slicedinvoice")}>

@@ -67,7 +67,7 @@ const CreateSubInvoice2 = () => {
     <div className={styles.savedInvoices}>
       <h1>Invoice Detail</h1>
       {loading && <h1>Loading...</h1>}
-      {error && <div>{error}</div>}
+      {error && <div>{error?.message}</div>}
       {!error && !loading && singleSubInvoice && (
         <div className={styles.sendInvoice}>
           {/* Heading */}

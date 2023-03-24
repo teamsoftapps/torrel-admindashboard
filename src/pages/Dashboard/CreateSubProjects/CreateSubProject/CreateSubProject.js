@@ -113,7 +113,7 @@ const CreateSubProject = ({ clientId }) => {
         <h1>Create Sub Project</h1>
         {error && (
           <div style={{ color: "red", fontSize: "0.9rem", margin: "1rem 0" }}>
-            {error}
+            {error?.message}
           </div>
         )}
         <form onSubmit={handleSubmit}>

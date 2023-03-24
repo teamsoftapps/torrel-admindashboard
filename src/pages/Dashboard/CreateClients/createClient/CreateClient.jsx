@@ -354,7 +354,7 @@ const CreateClient = () => {
 
           {error && (
             <p style={{ color: "red", fontSize: "0.8rem", margin: "20px 0" }}>
-              {error}
+              {error?.message}
             </p>
           )}
 

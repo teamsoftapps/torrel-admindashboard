@@ -350,7 +350,7 @@ const Invoice = () => {
       </div>
 
       {isLoading && <h1>Loading...</h1>}
-      {error && <div>{error}</div>}
+      {error && <div>{error?.message}</div>}
 
       {!error && !isLoading && (
         <div className={styles.invoiceInfoTable}>

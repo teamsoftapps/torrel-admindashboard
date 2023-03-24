@@ -110,7 +110,7 @@ const Create = () => {
       {/************* Create Projects Form *********************/}
       <div className={styles.formContainer}>
         <h1>Create Project</h1>
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className={styles.error}>{error?.message}</p>}
         <form onSubmit={handleSubmit}>
           <div className={styles.form}>
             <div className={styles.left}>
