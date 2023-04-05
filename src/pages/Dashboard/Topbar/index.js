@@ -54,7 +54,7 @@ const Topbar = () => {
       </div>
       <div className={styles.user_info}>
         <div className={styles.name_role}>
-          <p>{user?.data?.name.substring(0, 6)}</p>
+          <p>{user?.data?.name?.substring(0, 6)}</p>
           <p>Admin</p>
         </div>
         <div className={styles.image}>

@@ -62,7 +62,7 @@ const UserList = () => {
   const blockUser = async (url) => {
     setIsLoading(true);
     setError(null);
-    console.log("token: ", user?.data?.token)
+    console.log("token: ", user?.data?.token);
     try {
       const { data } = await api.patch(url, {}, {
         headers: {
@@ -215,7 +215,9 @@ const UserList = () => {
                           }
                         >
                           <span>Block</span>
-                          <LockOpenOutlinedIcon className={styled.mt_icon} />
+                          <NoEncryptionOutlinedIcon
+                            className={styled.mt_icon}
+                          />
                         </Button>
                       ) : (
                         <Button
@@ -226,9 +228,8 @@ const UserList = () => {
                           }
                         >
                           <span>Unblock</span>
-                          <NoEncryptionOutlinedIcon
-                            className={styled.mt_icon}
-                          />
+
+                          <LockOpenOutlinedIcon className={styled.mt_icon} />
                         </Button>
                       )}
                     </td>
