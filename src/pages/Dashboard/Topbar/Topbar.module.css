@@ -1,6 +1,7 @@
 .container {
   display: flex;
   gap: 3rem;
+  justify-content: flex-end;
 }
 
 .container > div {
@@ -48,7 +49,7 @@
 }
 
 .container > .options {
-  flex-grow: 2;
+  /* flex-grow: 2; */
 }
 
 .container > .options button {
@@ -73,32 +74,38 @@
   width: 1.2rem;
 }
 
-.container > .user_info {
+.container > .user_info > a {
   display: flex;
   justify-content: space-evenly;
-  flex-grow: 0.2;
+  /* flex-grow: 0.2; */
   cursor: pointer;
+  gap: 1rem;
 }
 
-.container > .user_info > .name_role {
+.container > .user_info > a > .name_role {
   width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
-.container > .user_info > .name_role > p {
+.container > .user_info > a > .name_role > p {
   font-size: 1rem;
 }
 
-.container > .user_info > .name_role > p:nth-child(1) {
+.container > .user_info > a > .name_role > p:nth-child(1) {
   font-weight: 700;
+  text-decoration: none;
 }
 
-.container > .user_info > .name_role > p:nth-child(2) {
+.container > .user_info > a > .name_role > p:nth-child(2) {
   color: #9babc5;
   font-weight: 400;
   font-size: 0.813rem;
+  text-decoration: none;
 }
 
-.container > .user_info > .image {
+.container > .user_info > a > .image {
   flex-grow: 1;
   width: 100%;
   text-align: center;
@@ -106,7 +113,7 @@
   position: relative;
 }
 
-.container > .user_info > .image > img {
+.container > .user_info > a > .image > img {
   width: 40px;
   height: 40px;
   border-radius: 50%;

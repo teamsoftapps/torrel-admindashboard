@@ -23,6 +23,7 @@ const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(true);
   const navigate = useNavigate();
+  const [isChecked, setIsChecked] = useState(false);
 
   // console.log("FRONTEND__ENV>>>>>", process.env.REACT_APP_BACKEND_BASE_URL);
   // "http://localhost:5000/api/v1/users/login"
@@ -42,6 +43,8 @@ const Login = () => {
     setTimeout(() => {
       setNewError(null);
     }, 4000);
+
+    console.log(api);
 
     try {
       const { data } = await api.post("/api/v1/users/login", payload);
@@ -77,7 +80,6 @@ const Login = () => {
 
   // console.log("user>>>>", user);
   console.log("error>>>>", isError);
-
   return (
     <div className={classes.loginContainer}>
       <div className={classes.loginInner}>
@@ -138,8 +140,23 @@ const Login = () => {
 
             <div className={classes.checkbox2}>
               <div className={classes.check}>
-                <input type="checkbox" />
-                <span>Accept all applicable terms and conditions </span>
+                <input
+                  type="checkbox"
+                  onClick={() => setIsChecked(!isChecked)}
+                />
+
+                <span>
+                  Accept all applicable{" "}
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    to="/terms-and-conditions"
+                    style={{ color: "#5138ee" }}
+                  >
+                    {" "}
+                    Terms and Conditions{" "}
+                  </Link>
+                </span>
               </div>
               <Link to="/forgotpassword">Forgot Password</Link>
             </div>
@@ -149,7 +166,15 @@ const Login = () => {
                 Loading...
               </button>
             ) : (
-              <button>Login</button>
+              <button
+                disabled={!isChecked}
+                style={{
+                  opacity: !isChecked ? 0.5 : 1,
+                  cursor: !isChecked ? "not-allowed" : "pointer",
+                }}
+              >
+                Login
+              </button>
             )}
             {isError && <div className={classes.error}>{isError?.error}</div>}
             {newError && <div className={classes.error}>{newError}</div>}

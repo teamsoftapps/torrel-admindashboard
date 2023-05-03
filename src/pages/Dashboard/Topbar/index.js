@@ -29,7 +29,7 @@ const Topbar = () => {
           />
         )}
       </button>
-      <div className={styles.search}>
+      {/* <div className={styles.search}>
         <form>
           <div className={styles.form_control}>
             <label htmlFor="search">
@@ -38,28 +38,32 @@ const Topbar = () => {
             </label>
           </div>
         </form>
-      </div>
+      </div> */}
       <div className={styles.options}>
-        <button>
+        {/* <button>
           <img src={RING} alt="Ring" />
           <span></span>
         </button>
         <Link to="/dashboard/emailsupport">
           <img src={ENVELOPE} alt="Envelope" />
           <span></span>
+        </Link> */}
+        <Link to="/dashboard/usersettings">
+          <button>
+            <img src={SETTINGGEAR} alt="SettingGear" />
+          </button>
         </Link>
-        <button>
-          <img src={SETTINGGEAR} alt="SettingGear" />
-        </button>
       </div>
       <div className={styles.user_info}>
-        <div className={styles.name_role}>
-          <p>{user?.data?.name?.substring(0, 6)}</p>
-          <p>Admin</p>
-        </div>
-        <div className={styles.image}>
-          <img src={user?.data?.userImage} alt="" />
-        </div>
+        <Link to="/dashboard/usersettings">
+          <div className={styles.name_role}>
+            <p>{user?.data?.name?.substring(0, 6)}</p>
+            <p>Admin</p>
+          </div>
+          <div className={styles.image}>
+            <img src={user?.data?.userImage} alt="" />
+          </div>
+        </Link>
       </div>
     </div>
   );

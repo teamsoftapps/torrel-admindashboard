@@ -33,6 +33,8 @@ import CreateSubInvoices2 from "./pages/Dashboard/CreateSubInvoices2";
 import EmailSupports from "./pages/Dashboard/EmailSupports";
 import Users from "./pages/Dashboard/Users";
 import UsersDetails from "./pages/Dashboard/UsersDetails";
+import UserSettings from "./pages/Dashboard/UserSettings";
+import TermsAndConditions from "./pages/Auth/TermsAndCondition/TermsAndCondition";
 
 const AppRouting = () => {
   const { user } = useAuthContext();
@@ -43,6 +45,8 @@ const AppRouting = () => {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
         {/* <Route
           path="/signup"
           element={!user ? <Signup /> : <Navigate to="/login" />}
@@ -180,6 +184,10 @@ const AppRouting = () => {
         <Route
           path="/dashboard/superadmin/users"
           element={user ? <Users /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/dashboard/usersettings"
+          element={user ? <UserSettings /> : <Navigate to="/login" />}
         />
 
         {/* <Route path="/dashboard/emailsupport" element={<EmailSupports />} /> */}
