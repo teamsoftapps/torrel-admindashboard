@@ -6,7 +6,8 @@ import CurrencyFormatter from "../../../../utils/currencyFormatter";
 import { api } from "../../../../services/api";
 // import { useInvoiceContext } from "../../../../hooks/useInvoiceContext";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // import { async } from "q";
 
 const AllInvoice = () => {
@@ -15,6 +16,7 @@ const AllInvoice = () => {
   const [error, setError] = useState(null);
   const [allInvoices, setAllInvoices] = useState([]);
   const { user } = useAuthContext();
+  const navigate = useNavigate();
   // const { dispatch, allInvoice: allInvoices } = useInvoiceContext();
   // const allInvoicesUrl = `/api/v1/invoices`;
   // const {
@@ -60,8 +62,28 @@ const AllInvoice = () => {
 
   return (
     <div className={styles.invoiceContainer}>
-      <h1>All Invoices</h1>
-
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <h1>All Invoices</h1>
+        <Link style={{ color: "#fff" }} onClick={() => navigate(-1)}>
+          <h2
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "rgb(126, 57, 202)",
+            }}
+          >
+            <ArrowBackIcon style={{ fontSize: "1.8rem" }} />
+            Back
+          </h2>
+        </Link>
+      </div>
       {isLoading && <h1>Loading...</h1>}
       {error && <div>{error?.message}</div>}
       {allInvoices?.data?.length === 0 && (
@@ -71,6 +93,7 @@ const AllInvoice = () => {
             fontSize: "1.7rem",
             // textAlign: "center",
             marginTop: "3rem",
+            color: "#7e39ca",
           }}
         >
           No invoices Added yet.
@@ -98,7 +121,7 @@ const AllInvoice = () => {
                   <tr key={id} className={styles.body__row}>
                     <td>
                       <div className={styles.invoiceUserInfo}>
-                        <img src={invoice?.job?.client?.image?.url} alt="" />
+                        <img src={invoice?.job?.client?.image} alt="" />
                         <div>
                           <span>
                             {invoice?.job?.client?.firstName +

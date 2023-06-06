@@ -7,6 +7,7 @@
 
 .container > .top > h1 {
   margin: 0.685rem 0;
+  color: #7e39ca;
 }
 
 .container > .top > .icon {
@@ -67,6 +68,7 @@
   /* margin-right: 2rem; */
   margin-bottom: 1.5rem;
   position: relative;
+  background-color: #20114a;
 }
 
 .overlay {
@@ -145,7 +147,7 @@
 }
 .clientName > span:nth-child(1) {
   font-size: 14px;
-  color: #000000 !important;
+  color: #fff;
 }
 .clientName > span:nth-child(2) {
   font-size: 11px;
@@ -182,7 +184,7 @@
 }
 .left > .phone > span,
 .right > .phone > span {
-  color: #000000;
+  color: #fff;
   font-size: 11px;
   margin-left: 0.7rem;
 }

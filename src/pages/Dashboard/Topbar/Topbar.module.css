@@ -1,6 +1,9 @@
 .container {
   display: flex;
   gap: 3rem;
+  background-color: #20114a;
+  padding: 0 1rem;
+  border-radius: 10px;
   justify-content: flex-end;
 }
 

@@ -41,6 +41,7 @@ const UserList = () => {
         },
       });
       if (data) {
+        console.log("data>>>", data);
         dispatch({
           type: "GET_ALL_USERS",
           payload: data?.data,
@@ -50,7 +51,7 @@ const UserList = () => {
       }
     } catch (error) {
       setIsLoading(false);
-      console.log("error==>       ", error);
+      console.log("error==>", error);
       setError(error.response.data.message);
     }
   }, [dispatch, user]);
@@ -64,11 +65,15 @@ const UserList = () => {
     setError(null);
     console.log("token: ", user?.data?.token);
     try {
-      const { data } = await api.patch(url, {}, {
-        headers: {
-          Authorization: `Bearer ${user?.data?.token}`,
-        },
-      });
+      const { data } = await api.patch(
+        url,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${user?.data?.token}`,
+          },
+        }
+      );
       if (data) {
         console.log("user_blocked>>>", data);
         fetchAllUser();
@@ -113,7 +118,7 @@ const UserList = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Users List</h1>
+      <h1 style={{ color: "#7e39ca" }}>Users List</h1>
 
       {/********* Tables *************/}
 
@@ -121,7 +126,9 @@ const UserList = () => {
         {isLoading && <div style={{ fontSize: "25px" }}>Loading...</div>}
         {error && <div>{error.message}</div>}
         {allUsers?.length === 0 && (
-          <div style={{ fontSize: "1.4rem" }}>No users in the List yet.</div>
+          <div style={{ fontSize: "1.4rem", color: "#7e39ca" }}>
+            No users in the List yet.
+          </div>
         )}
         {!isLoading && !error && (
           <table>
@@ -157,7 +164,7 @@ const UserList = () => {
                         alt=""
                         className={styled.userImg}
                       />
-                      <span>{user?.name}</span>
+                      <span>{user?.firstName + " " + user?.lastName}</span>
                     </td>
                     <td>{user?.email} </td>
                     {/* <td>abcd Company</td> */}

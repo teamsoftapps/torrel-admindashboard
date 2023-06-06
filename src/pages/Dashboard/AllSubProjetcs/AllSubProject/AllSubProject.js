@@ -8,7 +8,8 @@ import { useInvoiceContext } from "../../../../hooks/useInvoiceContext";
 import CurrencyFormatter from "../../../../utils/currencyFormatter";
 import { api } from "../../../../services/api";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const AllSubProject = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const AllSubProject = () => {
   const [activeBtn2, setActiveBtn2] = useState(false);
   const [activeBtn3, setActiveBtn3] = useState(false);
   const { user } = useAuthContext();
+  const navigate = useNavigate();
   // *****FETCHING ALL JOBS AND DISPATCHING IT********
 
   // const _url = "/api/v1/subjobs";
@@ -112,7 +114,28 @@ const AllSubProject = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Sub Projects</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <h1>Sub Projects</h1>
+        <Link style={{ color: "#fff" }} onClick={() => navigate(-1)}>
+          <h2
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "rgb(126, 57, 202)",
+            }}
+          >
+            <ArrowBackIcon style={{ fontSize: "1.8rem" }} />
+            Back
+          </h2>
+        </Link>
+      </div>
       <div className={styles.top}>
         <div className={styles.topLeft}>
           <button
@@ -186,8 +209,8 @@ const AllSubProject = () => {
                 <th>Project Name</th>
                 <th>Sub Project Name</th>
                 <th>Sub Project Budget</th>
-                <th>Sub Job Location</th>
-                <th>Sub Project Team</th>
+                {/* <th>Sub Job Location</th> */}
+                {/* <th>Sub Project Team</th> */}
                 <th>Sub Job Status</th>
                 {/* <th>
                   <SettingsIcon style={{ color: "#ffffff", height: "20px" }} />
@@ -214,10 +237,10 @@ const AllSubProject = () => {
                   <td style={{ color: "#6BDB65" }}>
                     <CurrencyFormatter amount={jobs?.subJobBudget} />
                   </td>
-                  <td>{jobs?.subJobLocation}</td>
+                  {/* <td>{jobs?.subJobLocation}</td>
                   <td style={{ color: "rgba(255, 255, 255, 0.55)" }}>
                     {jobs?.subJobTeamAndResourceRequirement}
-                  </td>
+                  </td> */}
                   {/* <td>{jobs?.startDate.split("T")[0]}</td> */}
                   {/* <td style={{ textTransform: "capitalize" }}>
                     <ProgressBarLine

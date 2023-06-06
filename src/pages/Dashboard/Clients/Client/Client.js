@@ -14,11 +14,12 @@ import countryLogo2 from "../../../../images/countryLogo2.png";
 import { useInvoiceContext } from "../../../../hooks/useInvoiceContext";
 import { api } from "../../../../services/api";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // import { useAuthContext } from "../../../../hooks/useAuthContext";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 // import { useFetch } from "../../../../hooks/useFetch";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Client = () => {
   const { user } = useAuthContext();
@@ -32,6 +33,7 @@ const Client = () => {
   // const { data: newClients, isLoading, error } = useFetch(clienturl, "GET");
   // const { user } = useAuthContext();
   const { dispatch, allClients } = useInvoiceContext();
+  const navigate = useNavigate();
   // const navigate = useNavigate();
 
   console.log("usersSpecific_clients_from_custom_fetch_hook>>>>", allClients);
@@ -127,19 +129,19 @@ const Client = () => {
       {/* *************TOP HEADER***********  */}
       <div className={styles.top}>
         <h1>Clients</h1>
-        {/* <div className={styles.icon}>
-          <div>
-            <Button onClick={() => navigate("/dashboard/createClients")}>
-              + Add Client
-            </Button>
-          </div>
-          <div>
-            <img src={hamburger} alt="" />
-          </div>
-          <div>
-            <img src={dashboardIcon} alt="" />
-          </div>
-        </div> */}
+        <Link style={{ color: "#fff" }} onClick={() => navigate(-1)}>
+          <h2
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "rgb(126, 57, 202)",
+            }}
+          >
+            <ArrowBackIcon style={{ fontSize: "1.8rem" }} />
+            Back
+          </h2>
+        </Link>
       </div>
       {/* *************CARDS***********  */}
       <div className={styles.cardContainer}>
@@ -188,7 +190,7 @@ const Client = () => {
               <div className={styles.card} key={clients._id}>
                 <div className={styles.profile}>
                   <div>
-                    <img src={clients?.image?.url} alt="" />
+                    <img src={clients?.image} alt="" />
                     <div className={styles.clientName}>
                       <span>{clients.firstName + " " + clients.lastName}</span>
                       <span>{clients.companyName}</span>
@@ -224,10 +226,10 @@ const Client = () => {
                   </div>
                 </div>
 
-                <div className={styles.time}>
+                {/* <div className={styles.time}>
                   <img src={countryLogo2} alt="" />
                   <span>Local time 7:48 AM</span>
-                </div>
+                </div> */}
 
                 {/* {clients.isSelected && (
                   <div className={styles.popup}>

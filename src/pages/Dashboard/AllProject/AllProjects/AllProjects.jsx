@@ -8,7 +8,8 @@ import { useInvoiceContext } from "../../../../hooks/useInvoiceContext";
 // import { useFetch } from "../../../../hooks/useFetch";
 import CurrencyFormatter from "../../../../utils/currencyFormatter";
 import { api } from "../../../../services/api";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const AllProjects = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const AllProjects = () => {
   const [activeBtn2, setActiveBtn2] = useState(false);
   const [activeBtn3, setActiveBtn3] = useState(false);
   const { user } = useAuthContext();
+  const navigate = useNavigate();
   // *****FETCHING ALL JOBS AND DISPATCHING IT********
 
   // const _url = "/api/v1/jobs";
@@ -112,7 +114,29 @@ const AllProjects = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Projects</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <h1>Projects</h1>
+        <Link style={{ color: "#fff" }} onClick={() => navigate(-1)}>
+          <h2
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "rgb(126, 57, 202)",
+            }}
+          >
+            <ArrowBackIcon style={{ fontSize: "1.8rem" }} />
+            Back
+          </h2>
+        </Link>
+      </div>
+
       <div className={styles.top}>
         <div className={styles.topLeft}>
           <button
@@ -185,8 +209,8 @@ const AllProjects = () => {
               <tr className={styles.table__header}>
                 <th>Project Name</th>
                 <th>Project Budget</th>
-                <th>Job Location</th>
-                <th>Project Team</th>
+                {/* <th>Job Location</th>
+                <th>Project Team</th> */}
                 {/* <th>Progress</th> */}
                 <th>Job Status</th>
                 {/* <th>
@@ -213,10 +237,10 @@ const AllProjects = () => {
                   <td style={{ color: "#6BDB65" }}>
                     <CurrencyFormatter amount={jobs?.projectBudget} />
                   </td>
-                  <td>{jobs?.jobLocation}</td>
+                  {/* <td>{jobs?.jobLocation}</td>
                   <td style={{ color: "rgba(255, 255, 255, 0.55)" }}>
                     {jobs?.projectTeamAndResourceRequirement}
-                  </td>
+                  </td> */}
                   {/* <td>{jobs?.startDate.split("T")[0]}</td> */}
                   {/* <td style={{ textTransform: "capitalize" }}>
                     <ProgressBarLine

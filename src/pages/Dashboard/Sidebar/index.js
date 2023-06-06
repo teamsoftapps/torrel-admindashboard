@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useInvoiceContext } from "../../../hooks/useInvoiceContext";
 import CLIENTS from "./../../../images/Clients.png";
 // import CREATEINVOICES from "./../../../images/Create_Invoices.png";
@@ -9,6 +9,7 @@ import TORRELLOGO from "./../../../images/torrelLogo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useLogout } from "../../../hooks/useLogout";
 import styles from "./Sidebar.module.css";
+import { useEffect, useState } from "react";
 
 const links = [
   // {
@@ -66,25 +67,34 @@ const Sidebar = () => {
   // console.log(isMobile)
   const navigate = useNavigate();
   const { logout } = useLogout();
+  const [active, setActive] = useState("Dashboard");
+
+  const handleActive = (text) => {
+    localStorage.setItem("ActiveText", text);
+  };
+  useEffect(() => {
+    const text = localStorage.getItem("ActiveText");
+    setActive(text);
+  });
 
   return (
     <div className={isMobile ? styles.mobile_container : styles.container}>
-      <img src={TORRELLOGO} alt="Logo" onClick={() => navigate("/dashboard")} />
+      <img src={TORRELLOGO} alt="Logo" onClick={() => navigate("/")} />
       <div className={styles.buttons}>
-        {links.map((link, index) => (
-          <Link
+        {links?.map((link, index) => (
+          <NavLink
             to={link.path}
             key={index}
             className={link.isActive && styles.link_active}
-            // onClick={handleActive()}
+            onClick={() => handleActive(link.text)}
           >
             <img src={link.src} alt={link.text} />
             <span onClick={() => setIsMobile(false)}> {link.text}</span>
-          </Link>
+          </NavLink>
         ))}
-        <Link to="#" style={{ marginTop: "10px" }}>
+        <Link onClick={logout} to="#">
           <LogoutIcon />
-          <span onClick={logout}>Logout</span>
+          <span>Logout</span>
         </Link>
       </div>
     </div>

@@ -5,7 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import CurrencyFormatter from "../../../../utils/currencyFormatter";
 import { api } from "../../../../services/api";
 import { useAuthContext } from "../../../../hooks/useAuthContext";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const AllSubInvoice = () => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const AllSubInvoice = () => {
   const [error, setError] = useState(null);
   const [allSubInvoices, setAllSubInvoices] = useState([]);
   const { user } = useAuthContext();
+  const navigate = useNavigate();
 
   // const allInvoicesUrl = `/api/v1/subinvoices`;
   // const {
@@ -53,8 +55,28 @@ const AllSubInvoice = () => {
 
   return (
     <div className={styles.invoiceContainer}>
-      <h1>All Sub Invoices</h1>
-
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <h1>All Sub Invoices</h1>
+        <Link style={{ color: "#fff" }} onClick={() => navigate(-1)}>
+          <h2
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              color: "rgb(126, 57, 202)",
+            }}
+          >
+            <ArrowBackIcon style={{ fontSize: "1.8rem" }} />
+            Back
+          </h2>
+        </Link>
+      </div>
       {isLoading && <h1>Loading...</h1>}
       {error && <div>{error?.message}</div>}
       {allSubInvoices?.data?.length === 0 && (
@@ -64,6 +86,7 @@ const AllSubInvoice = () => {
             fontSize: "1.7rem",
             // textAlign: "center",
             marginTop: "3rem",
+            color: "#7e39ca",
           }}
         >
           No Sub invoices corresponding to this user.
@@ -91,10 +114,7 @@ const AllSubInvoice = () => {
                   <tr key={id} className={styles.body__row}>
                     <td>
                       <div className={styles.invoiceUserInfo}>
-                        <img
-                          src={invoice?.subjob?.job?.client?.image?.url}
-                          alt=""
-                        />
+                        <img src={invoice?.subjob?.job?.client?.image} alt="" />
                         <div>
                           <span>
                             {invoice?.subjob?.job?.client?.firstName +

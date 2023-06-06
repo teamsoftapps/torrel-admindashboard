@@ -140,7 +140,6 @@ const Project = () => {
   };
 
   const handleCompleteJob = async (id) => {
-    console.log("Id>>>>", id);
     try {
       const { data } = await api.patch(`/api/v1/jobs/${id}`);
       if (data) {
@@ -254,11 +253,10 @@ const Project = () => {
             </thead>
 
             <tbody className={styles.gfg}>
-              {
-                allJobs?.map((jobs, id) => (
-                  <tr key={jobs._id} className={styles.table__row}>
-                    {/* MODAL_FOR_JOB_COMPLETETION */}
-                    {/* {showModal && (
+              {allJobs?.map((jobs, id) => (
+                <tr key={jobs._id} className={styles.table__row}>
+                  {/* MODAL_FOR_JOB_COMPLETETION */}
+                  {/* {showModal && (
                     <div className={styles.modal__container}>
                       <div className={styles.modal__inner}>
                         <h2>Want to finish this job?</h2>
@@ -268,15 +266,17 @@ const Project = () => {
                     </div>
                   )} */}
 
-                    <td>{jobs?.projectName}</td>
-                    <td style={{ color: "#6BDB65" }}><CurrencyFormatter amount={jobs?.projectBudget}/></td>
-                    <td>{jobs?.jobLocation}</td>
-                    <td style={{ color: "rgba(255, 255, 255, 0.55)" }}>
-                      {jobs?.projectTeamAndResourceRequirement}
-                    </td>
-                    {/* <td>{jobs?.startDate.split("T")[0]}</td> */}
-                    <td style={{ textTransform: "capitalize" }}>
-                      {/* <ProgressBarLine
+                  <td>{jobs?.projectName}</td>
+                  <td style={{ color: "#6BDB65" }}>
+                    <CurrencyFormatter amount={jobs?.projectBudget} />
+                  </td>
+                  <td>{jobs?.jobLocation}</td>
+                  <td style={{ color: "rgba(255, 255, 255, 0.55)" }}>
+                    {jobs?.projectTeamAndResourceRequirement}
+                  </td>
+                  {/* <td>{jobs?.startDate.split("T")[0]}</td> */}
+                  <td style={{ textTransform: "capitalize" }}>
+                    {/* <ProgressBarLine
                       value={75}
                       min={0}
                       max={100}
@@ -297,72 +297,70 @@ const Project = () => {
                         },
                       }}
                     /> */}
-                      {jobs?.isCompleted == "complete"
-                        ? "Completed"
-                        : "Incomplete"}
+                    {jobs?.isCompleted == "complete"
+                      ? "Completed"
+                      : "Incomplete"}
+                  </td>
+                  {jobs?.isCompleted == "incomplete" ? (
+                    <td className={styles.select_btn}>
+                      <Button onClick={() => handleCompleteJob(jobs?._id)}>
+                        Complete Job
+                      </Button>
                     </td>
-                    {jobs?.isCompleted == "incomplete" ? (
-                      <td className={styles.select_btn}>
-                        <Button onClick={() => handleCompleteJob(jobs?._id)}>
-                          Complete Job
-                        </Button>
-                      </td>
-                    ) : (
-                      <td className={styles.select_btn}>
-                        <Button disabled style={{ opacity: "0.5" }}>
-                          Complete Job
-                        </Button>
-                      </td>
-                    )}
-                    <Link
-                      style={{ textDecoration: "none", marginBottom: "0" }}
-                      to={`/dashboard/subprojects/${jobs._id}`}
-                    >
-                      <td className={styles.select_btn}>
-                        <Button>View Sub Jobs</Button>
-                      </td>
-                    </Link>
-                    <td>
-                      <img
-                        src={threeDots}
-                        alt=""
-                        style={{ cursor: "pointer", height: "28px" }}
-                        onClick={() => handleShowPopup(jobs?._id)}
-                      />
+                  ) : (
+                    <td className={styles.select_btn}>
+                      <Button disabled style={{ opacity: "0.5" }}>
+                        Complete Job
+                      </Button>
+                    </td>
+                  )}
+                  <Link
+                    style={{ textDecoration: "none", marginBottom: "0" }}
+                    to={`/dashboard/subprojects/${jobs._id}`}
+                  >
+                    <td className={styles.select_btn}>
+                      <Button>View Sub Jobs</Button>
+                    </td>
+                  </Link>
+                  <td>
+                    <img
+                      src={threeDots}
+                      alt=""
+                      style={{ cursor: "pointer", height: "28px" }}
+                      onClick={() => handleShowPopup(jobs?._id)}
+                    />
 
-                      {jobs.isSelected && (
-                        <div className={styles.popup}>
-                          {/* <div
+                    {jobs.isSelected && (
+                      <div className={styles.popup}>
+                        {/* <div
                           onClick={() =>
                             navigate(`/dashboard/subprojects/${jobs._id}`)
                           }
                         >
                           Sub Job
                         </div> */}
-                          <div
-                            onClick={() =>
-                              navigate(`/dashboard/invoices/${jobs._id}`)
-                            }
-                          >
-                            Invoice
-                          </div>
-                          <div onClick={() => handleDelete(jobs._id)}>
-                            Delete
-                          </div>
-                          <div>
-                            <Link
-                              to="/dashboard/updateClients"
-                              style={{ textDecoration: "none" }}
-                              state={{ job: jobs }}
-                            >
-                              Update
-                            </Link>
-                          </div>
+                        <div
+                          onClick={() =>
+                            navigate(`/dashboard/invoices/${jobs._id}`)
+                          }
+                        >
+                          Invoice
                         </div>
-                      )}
-                    </td>
-                  </tr>
-                ))}
+                        <div onClick={() => handleDelete(jobs._id)}>Delete</div>
+                        <div>
+                          <Link
+                            to="/dashboard/updateClients"
+                            style={{ textDecoration: "none" }}
+                            state={{ job: jobs }}
+                          >
+                            Update
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         )}
